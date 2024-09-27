@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Books</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div id="scroll-wrap" class="container">
+      <div class="main">
+        <!-- Audio Books Section -->
+        <h2>Audio Books</h2>
+        <div id="audio-books" class="bookshelf">
+          <figure>
+            <div>
+              <img class="book" src="/images/book1.png" alt="Audio Book" />
+            </div>
+            <div class="buttons">
+              <button
+                onclick="showAudioPlayer('C:\\Users\\atoda\\Downloads\\activity_web\\pages\\book\\audio_books\\book1.mp3')">
+                Play
+              </button>
+              <button
+                onclick="downloadBook('C:\\Users\\atoda\\Downloads\\activity_web\\pages\\book\\audio_books\\book1.mp3')">
+                Download
+              </button>
+            </div>
+            <figcaption>
+              <h2>Audio Book 1<span>Author 1</span></h2>
+            </figcaption>
+          </figure>
+          <figure>
+            <div>
+              <img class="book" src="/images/book1.png" alt="Audio Book" />
+            </div>
+            <div class="buttons">
+              <button
+                onclick="showAudioPlayer('C:\\Users\\atoda\\Downloads\\activity_web\\pages\\book\\audio_books\\book1.mp3')">
+                Play
+              </button>
+              <button
+                onclick="downloadBook('C:\\Users\\atoda\\Downloads\\activity_web\\pages\\book\\audio_books\\book1.mp3')">
+                Download
+              </button>
+            </div>
+            <figcaption>
+              <h2>Audio Book 1<span>Author 1</span></h2>
+            </figcaption>
+          </figure>
+          <figure>
+            <div>
+              <img class="book" src="/images/book1.png" alt="Audio Book" />
+            </div>
+            <div class="buttons">
+              <button
+                onclick="showAudioPlayer('C:\\Users\\atoda\\Downloads\\activity_web\\pages\\book\\audio_books\\book1.mp3')">
+                Play
+              </button>
+              <button
+                onclick="downloadBook('C:\\Users\\atoda\\Downloads\\activity_web\\pages\\book\\audio_books\\book1.mp3')">
+                Download
+              </button>
+            </div>
+            <figcaption>
+              <h2>Audio Book 1<span>Author 1</span></h2>
+            </figcaption>
+          </figure>
+          <figure>
+            <div>
+              <img class="book" src="/images/book1.png" alt="Audio Book" />
+            </div>
+            <div class="buttons">
+              <button
+                onclick="showAudioPlayer('C:\\Users\\atoda\\Downloads\\activity_web\\pages\\book\\audio_books\\book1.mp3')">
+                Play
+              </button>
+              <button
+                onclick="downloadBook('C:\\Users\\atoda\\Downloads\\activity_web\\pages\\book\\audio_books\\book1.mp3')">
+                Download
+              </button>
+            </div>
+            <figcaption>
+              <h2>Audio Book 1<span>Author 1</span></h2>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- Text Books Section -->
+        <h2>Text Books</h2>
+        <div id="text-books" class="bookshelf">
+          <figure>
+            <div>
+              <img class="book" src="/images/book1.png" alt="Text Book" />
+            </div>
+            <div class="buttons">
+              <button
+                onclick="showPDFViewer('C:\\Users\\atoda\\Downloads\\activity_web\\pages\\book\\text_books\\book1.pdf')">
+                Read
+              </button>
+              <button
+                onclick="downloadBook('C:\\Users\\atoda\\Downloads\\activity_web\\pages\\book\\text_books\\book1.pdf')">
+                Download
+              </button>
+            </div>
+            <figcaption>
+              <h2>Text Book 1<span>Author 1</span></h2>
+            </figcaption>
+          </figure>
+          <figure>
+            <div>
+              <img class="book" src="/images/book1.png" alt="Text Book" />
+            </div>
+            <div class="buttons">
+              <button
+                onclick="showPDFViewer('C:\\Users\\atoda\\Downloads\\activity_web\\pages\\book\\text_books\\book1.pdf')">
+                Read
+              </button>
+              <button
+                onclick="downloadBook('C:\\Users\\atoda\\Downloads\\activity_web\\pages\\book\\text_books\\book1.pdf')">
+                Download
+              </button>
+            </div>
+            <figcaption>
+              <h2>Text Book 1<span>Author 1</span></h2>
+            </figcaption>
+          </figure>
+          <figure>
+            <div>
+              <img class="book" src="/images/book1.png" alt="Text Book" />
+            </div>
+            <div class="buttons">
+              <button
+                onclick="showPDFViewer('C:\\Users\\atoda\\Downloads\\activity_web\\pages\\book\\text_books\\book1.pdf')">
+                Read
+              </button>
+              <button
+                onclick="downloadBook('C:\\Users\\atoda\\Downloads\\activity_web\\pages\\book\\text_books\\book1.pdf')">
+                Download
+              </button>
+            </div>
+            <figcaption>
+              <h2>Text Book 1<span>Author 1</span></h2>
+            </figcaption>
+          </figure>
+          <figure>
+            <div>
+              <img class="book" src="/images/book1.png" alt="Text Book" />
+            </div>
+            <div class="buttons">
+              <button
+                onclick="showPDFViewer('C:\\Users\\atoda\\Downloads\\activity_web\\pages\\book\\text_books\\book1.pdf')">
+                Read
+              </button>
+              <button
+                onclick="downloadBook('C:\\Users\\atoda\\Downloads\\activity_web\\pages\\book\\text_books\\book1.pdf')">
+                Download
+              </button>
+            </div>
+            <figcaption>
+              <h2>Text Book 1<span>Author 1</span></h2>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio Player Section -->
+    <div id="audio-player" class="hidden player-container">
+      <h2>Audio Player</h2>
+      <audio controls id="audio">
+        <source id="audio-source" src="" type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
+      <button class="back-btn" onclick="backToList()">Back to List</button>
+    </div>
+
+    <!-- PDF Viewer Section -->
+    <div id="pdf-viewer" class="hidden player-container">
+      <h2>Text Book Reader</h2>
+      <embed
+        id="pdf-source"
+        src=""
+        type="application/pdf"
+        width="100%"
+        height="600px" />
+      <button class="back-btn" onclick="backToList()">Back to List</button>
+    </div>
+  </body>
+</html>
