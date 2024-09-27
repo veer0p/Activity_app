@@ -1,23 +1,30 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
 }
 
 #slideshow-image {
-    max-width: 80%;
-    height: auto;
-    margin: 20px auto;
-    display: block;
+  max-width: 80%;
+  height: auto;
+  margin: 20px auto;
+  display: block;
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 #status {
-    margin-top: 20px;
-    color: gray;
+  margin-top: 20px;
+  color: gray;
+}
+
+img {
+  width: auto; /* Make image responsive */
+  height: 100%; /* Maintain aspect ratio */
+  max-width: 300px; /* Set a maximum width for larger screens */
+  border-radius: 10px; /* Optional: Add some styling */
 }

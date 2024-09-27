@@ -9,6 +9,7 @@ const images = [
   "/Activity_app/images/image (3).png",
   "/Activity_app/images/image (4).png",
 ];
+
 let currentIndex = 0;
 
 // Function to update the image
