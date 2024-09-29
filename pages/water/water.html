@@ -1,75 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Water Reminder</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+      }
 
-        h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
+      h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
 
-        button {
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
+      button {
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
 
-        button:hover {
-            background-color: #218838;
-        }
+      button:hover {
+        background-color: #218838;
+      }
 
-        #status {
-            margin-top: 20px;
-            color: gray;
-        }
+      #status {
+        margin-top: 20px;
+        color: gray;
+      }
 
-        #stop-reminder {
-            background-color: #dc3545;
-        }
+      #stop-reminder {
+        background-color: #dc3545;
+      }
 
-        #stop-reminder:hover {
-            background-color: #c82333;
-        }
+      #stop-reminder:hover {
+        background-color: #c82333;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <h1>Water Reminder</h1>
     <button id="start-reminder">Start Water Reminder</button>
     <button id="stop-reminder">Stop</button>
     <div id="status">Reminder is inactive.</div>
 
     <script>
-        let reminderInterval;  // Variable to store the interval ID
+      let reminderInterval; // Variable to store the interval ID
 
-        document.getElementById('start-reminder').addEventListener('click', function () {
-            const statusElement = document.getElementById('status');
-            statusElement.innerText = 'Reminder started. You will be reminded every hour to drink water!';
+      document
+        .getElementById("start-reminder")
+        .addEventListener("click", function () {
+          const statusElement = document.getElementById("status");
+          statusElement.innerText =
+            "Reminder started. You will be reminded every hour to drink water!";
 
-            // Set up the hourly reminder and store the interval ID
-            reminderInterval = setInterval(function () {
-                alert("Time to drink water!");
-            }, 3000); // 1 hour = 3600000 milliseconds
+          // Set up the hourly reminder and store the interval ID
+          reminderInterval = setInterval(function () {
+            alert("Time to drink water!");
+          }, 3600000); // 1 hour = 3600000 milliseconds
         });
 
-        document.getElementById('stop-reminder').addEventListener('click', function () {
-            const statusElement = document.getElementById('status');
-            statusElement.innerText = 'Reminder stopped.';
+      document
+        .getElementById("stop-reminder")
+        .addEventListener("click", function () {
+          const statusElement = document.getElementById("status");
+          statusElement.innerText = "Reminder stopped.";
 
-            // Clear the reminder interval
-            clearInterval(reminderInterval);
+          // Clear the reminder interval
+          clearInterval(reminderInterval);
         });
     </script>
-
-</body>
+  </body>
 </html>
