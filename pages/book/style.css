@@ -28,7 +28,7 @@ h2 {
 .bookshelf figure {
   position: relative;
   display: inline-block;
-  margin: 20px;
+  margin: 10px;
   padding: 15px;
   max-width: 200px;
   background: white;
@@ -53,14 +53,14 @@ h2 {
 .buttons a,
 .buttons button {
   display: inline-block;
-  padding: 5px 10px;
+  padding: 5px 5px;
   background-color: #007bff;
   color: white;
   border-radius: 4px;
   text-decoration: none;
   font-size: 12px;
   margin: 5px;
-  width: 45%;
+  width: 50%;
   text-align: center;
   border: none;
   cursor: pointer;
@@ -108,4 +108,23 @@ figcaption h2 span {
 
 .back-btn:hover {
   background-color: #0056b3;
+}
+
+/* For mobile devices */
+@media (max-width: 600px) {
+  .bookshelf {
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  .bookshelf figure {
+    flex: 0 0 0; /* 48% width ensures two books per row */
+    margin: 5px 1%; /* Adding a small horizontal margin */
+    width: 35%;
+  }
+
+  .book {
+    width: 100%; /* Book image adjusts to figure width */
+    height: auto; /* Maintain aspect ratio */
+  }
 }

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pranayam</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      #slideshow-image {
+        max-width: 80%;
+        height: auto;
+        margin: 20px auto;
+        display: block;
+        border-radius: 10px;
+      }
+
+      #status {
+        margin-top: 20px;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Pranayam</h1>
+
+    <!-- Slideshow image -->
+
+    <img
+      id="slideshow-image"
+      src="/Activity_app/images/2.jpg"
+      alt="Slideshow Image" />
+
+    <!-- Status text for speech recognition -->
+    <div id="status">Listening for commands...</div>
+
+    <script>
+      const images = [
+        "/Activity_app/images/a.jpeg",
+        "/Activity_app/images/b.jpg",
+        "/Activity_app/images/c.jpg",
+        "/Activity_app/images/d.jpg",
+      ];
+
+      let currentIndex = 0;
+
+      function updateImage() {
+        const imageElement = document.getElementById("slideshow-image");
+        imageElement.src = images[currentIndex];
+        console.log(`Current image: ${images[currentIndex]}`);
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateImage();
+      }
+
+      updateImage();
+
+      const recognition = new (window.SpeechRecognition ||
+        window.webkitSpeechRecognition)();
+      recognition.interimResults = false;
+      recognition.continuous = true;
+      recognition.lang = "en-US";
+
+      recognition.addEventListener("result", (event) => {
+        const transcript =
+          event.results[event.resultIndex][0].transcript.toLowerCase();
+        console.log(`User said: ${transcript}`);
+
+        if (transcript.includes("next")) {
+          nextSlide();
+        }
+      });
+
+      recognition.addEventListener("error", (event) => {
+        console.error("Speech recognition error:", event.error);
+        document.getElementById("status").innerText =
+          "Speech recognition error, please try again.";
+      });
+
+      recognition.addEventListener("end", recognition.start);
+      recognition.start();
+
+      document.getElementById("status").innerText = "Listening for commands...";
+    </script>
+  </body>
+</html>

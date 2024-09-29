@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meditation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      #slideshow-image {
+        max-width: 80%;
+        height: auto;
+        margin: 20px auto;
+        display: block;
+        border-radius: 10px;
+      }
+
+      #status {
+        margin-top: 20px;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Meditation</h1>
+
+    <!-- Slideshow image -->
+    <img
+      id="slideshow-image"
+      src="/Activity_app/images/2.jpg"
+      alt="Slideshow Image" />
+
+    <!-- Status text for speech recognition -->
+    <div id="status">Listening for commands...</div>
+
+    <script>
+      // Array of image paths (adjust paths based on your directory structure)
+      const images = [
+        "/Activity_app/images/2.jpg",
+        "/Activity_app/images/3.jpg",
+        "/Activity_app/images/4.jpeg",
+        "/Activity_app/images/5.jpg",
+        "/Activity_app/images/6.jpg",
+      ];
+
+      let currentIndex = 0;
+
+      // Function to update the image
+      function updateImage() {
+        const imageElement = document.getElementById("slideshow-image");
+        imageElement.src = images[currentIndex];
+        console.log(`Current image: ${images[currentIndex]}`); // Debug output
+      }
+
+      // Function to go to the next slide
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % images.length; // Move to the next slide
+        updateImage();
+      }
+
+      // Initialize the first image
+      updateImage();
+
+      // Set up speech recognition using Webkit SpeechRecognition API
+      const recognition = new (window.SpeechRecognition ||
+        window.webkitSpeechRecognition)();
+      recognition.interimResults = false; // We don't need interim results, just the final result
+      recognition.continuous = true; // Enable continuous listening
+      recognition.lang = "en-US"; // Set the language
+
+      // Event listener for when speech is recognized
+      recognition.addEventListener("result", (event) => {
+        const transcript =
+          event.results[event.resultIndex][0].transcript.toLowerCase();
+        console.log(`User said: ${transcript}`); // Log what the user is speaking
+
+        if (transcript.includes("next")) {
+          nextSlide(); // Move to the next slide when "next" is spoken
+        }
+      });
+
+      // Error handler
+      recognition.addEventListener("error", (event) => {
+        console.error("Speech recognition error detected:", event.error);
+        document.getElementById("status").innerText =
+          "Speech recognition error, please try again.";
+      });
+
+      // Start recognition automatically
+      recognition.addEventListener("end", recognition.start); // Restart recognition when it stops
+      recognition.start(); // Start listening automatically
+
+      // Update status text
+      document.getElementById("status").innerText = "Listening for commands...";
+      console.log("Listening for 'next' command...");
+    </script>
+  </body>
+</html>
